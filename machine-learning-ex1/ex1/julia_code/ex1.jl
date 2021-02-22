@@ -30,7 +30,8 @@ include("gradient_descent.jl")
 ## ======================= Part 1: Plotting =======================
 println("Plotting Data ...")
 data = readdlm("ex1data1.txt", ',', Float64)
-X = data[:, 1]; y = data[:, 2];
+X = data[:, 1]
+y = data[:, 2]
 m = length(y)   # number of training examples
 
 # Plot Data
@@ -60,7 +61,7 @@ println("With theta = [0; 0]\nCost computed = ", J)
 println("Expected cost value (approx) 32.07.")
 
 # further testing of the cost function
-J = compute_cost(X, y, [-1 ; 2])
+J = compute_cost(X, y, [-1; 2])
 println("\nWith theta = [-1 ; 2]\nCost computed = ", J)
 println("Expected cost value (approx) 54.24.")
 
@@ -91,21 +92,32 @@ readline();
 println("Visualizing J(theta_0, theta_1) ...")
 
 # Grid over which we will calculate J
-theta0_vals = range(-10, stop=10, length=100)
-theta1_vals = range(-1, stop=4, length=100)
+theta0_vals = range(-10, stop = 10, length = 100)
+theta1_vals = range(-1, stop = 4, length = 100)
 
 # Surface plot
-p_s = surface(theta0_vals, theta1_vals, (theta0_vals, theta1_vals) -> compute_cost(X, y, [theta0_vals; theta1_vals]))
-xlabel!(L"$\theta_0$"); ylabel!(L"$\theta_1$");
+p_s = surface(
+    theta0_vals,
+    theta1_vals,
+    (theta0_vals, theta1_vals) -> compute_cost(X, y, [theta0_vals; theta1_vals]),
+)
+xlabel!(L"$\theta_0$")
+ylabel!(L"$\theta_1$")
 gui(p_s)
 
-print("Program paused. Press enter to continue.\n");
+print("Program paused. Press enter to continue.\n")
 readline()
 # Contour plot
 # Plot J_vals as 15 contours spaced logarithmically between 0.01 and 100
-p_c = contour(theta0_vals, theta1_vals, (theta0_vals, theta1_vals) -> compute_cost(X, y, [theta0_vals; theta1_vals]), levels=exp10.(range(-2, stop=3, length=20)),
-              xlabel=L"$\theta_0$", ylabel=L"$\theta_1$")
-scatter!(p_c, [theta[1]], [theta[2]], ms=7)
+p_c = contour(
+    theta0_vals,
+    theta1_vals,
+    (theta0_vals, theta1_vals) -> compute_cost(X, y, [theta0_vals; theta1_vals]),
+    levels = exp10.(range(-2, stop = 3, length = 20)),
+    xlabel = L"$\theta_0$",
+    ylabel = L"$\theta_1$",
+)
+scatter!(p_c, [theta[1]], [theta[2]], ms = 7)
 
 gui(p_c)
 

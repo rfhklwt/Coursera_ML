@@ -38,16 +38,17 @@ include("normal_equation.jl")
 
 ## ================ Part 1: Feature Normalization ================
 
-println("Loading data ...");
+println("Loading data ...")
 
 ## Load Data
 data = readdlm("ex1data2.txt", ',', Float64)
-X = data[:, 1: 2]; y = data[:, 3];
+X = data[:, 1:2]
+y = data[:, 3]
 m = length(y)
 
 # Print out some data points
 println("First 10 examples from the dataset: ")
-for i in 1: 10
+for i = 1:10
     println("x = ", X[i, :], ", y = ", y[i])
 end
 
@@ -98,7 +99,7 @@ theta = zeros(3, 1)
 theta, J_history = gradient_descent_multi(X, y, theta, alpha, num_iters)
 
 # Plot the convergence graph
-p_J = plot(1: length(J_history), J_history, legend = false)
+p_J = plot(1:length(J_history), J_history, legend = false)
 xlabel!("Number of iterations")
 ylabel!("Cost J")
 
@@ -106,7 +107,7 @@ gui(p_J)
 
 # Display gradient descent"s result
 println("Theta computed from gradient descent: \n")
-for i in 1: length(theta)
+for i = 1:length(theta)
     println(theta[i])
 end
 
@@ -120,7 +121,7 @@ price = dot([1 (([1650 3] .- mu) ./ sigma)], theta) # You should change this
 # ============================================================
 
 println("\nPredicted price of a 1650 sq-ft, 3 br house (using gradient descent): \n")
-for i in 1: length(price)
+for i = 1:length(price)
     println(price[i])
 end
 
@@ -143,7 +144,7 @@ println("Solving with normal equations...")
 
 ## Load Data
 data = readdlm("ex1data2.txt", ',', Float64)
-X = data[:, 1: 2]
+X = data[:, 1:2]
 y = data[:, 3]
 m = length(y)
 
@@ -155,14 +156,14 @@ theta = normal_equation(X, y)
 
 # Display normal equation"s result
 println("Theta computed from the normal equations: \n")
-for i in 1: length(theta)
+for i = 1:length(theta)
     println(theta[i])
 end
 print("\n")
 
 # Estimate the price of a 1650 sq-ft, 3 br house
 # ====================== YOUR CODE HERE ======================
-price = theta' * [1; 1650; 3]; # You should change this
+price = theta' * [1; 1650; 3] # You should change this
 
 
 # ============================================================

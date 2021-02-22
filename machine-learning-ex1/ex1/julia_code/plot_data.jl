@@ -12,12 +12,11 @@ function plot_data(x, y)
     #       type(e.g. m=:cross). More information please type 
     #       @show Plots.supported_markers(). Furthermore, you can make
     #       the markers larger by using plot(..., m=:cross, ms=10);
-    
+
     p = scatter(x, y, ms = 5, label = "Training data")
     xlabel!("Profit in \$10,000s")
     ylabel!("Population of City in \$10,000s")
 
     return p
- 
+
 end
-    
