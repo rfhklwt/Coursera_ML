@@ -1,7 +1,6 @@
 ## Machine Learning Online Class - Exercise 2: Logistic Regression
 @info "LOADING PACKAGE..."
 using DelimitedFiles
-using Printf
 using Plots
 using LaTeXStrings
 using LinearAlgebra
