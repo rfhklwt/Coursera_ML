@@ -42,7 +42,7 @@ y = data[:, 3]
 #  the problem we are working with.
 
 println(
-    "Plotting data with + indicating (y = 1) examples and o indicating (y = 0) examples.",
+    "Plotting data with blue o indicating (y = 1) examples and red o indicating (y = 0) examples.",
 )
 
 theme(:ggplot2)

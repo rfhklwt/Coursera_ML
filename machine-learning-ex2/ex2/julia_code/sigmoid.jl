@@ -6,6 +6,6 @@
 # Instructions: Compute the sigmoid of each value of z (z can be a matrix,
 #               vector or scalar).
 
-sigmoid(z) = @. 1 / (1 + exp(-z))
+sigmoid(z) = @. 1 / (1 + ℯ^(-z))
 
 # =============================================================
